@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ingresar Nuevos Productos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Ingresar Nuevos Productos</h1>
+    <form action="/nuevo" method="POST">
+      <input type="text" name="tipo" placeholder="Tipo" required>
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="number" name="cantidad" placeholder="Cantidad" required>
+      <input type="date" name="vencimiento" required>
+      <button type="submit">Guardar Producto</button>
+    </form>
+    <a href="/">← Volver al menú</a>
+  </div>
+</body>
+</html>

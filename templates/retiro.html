@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hacer Retiro de Almacén</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Hacer Retiro de Almacén</h1>
+    <form action="/retiro" method="POST">
+      <select name="nombre" required>
+        <option value="">Seleccione el producto</option>
+        {% for producto in productos %}
+          <option value="{{ producto['nombre'] }}">{{ producto['nombre'] }}</option>
+        {% endfor %}
+      </select>
+      <input type="number" name="cantidad" placeholder="Cantidad a retirar" required>
+      <button type="submit">Retirar</button>
+    </form>
+    <a href="/">← Volver al menú</a>
+  </div>
+</body>
+</html>

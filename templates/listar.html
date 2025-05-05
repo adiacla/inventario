@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listar Inventario por Tipo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Listar Inventario por Tipo</h1>
+    <form action="/listar" method="POST">
+      <select name="tipo" required>
+        <option value="">Seleccione un tipo de producto</option>
+        {% for tipo in tipos %}
+          <option value="{{ tipo['tipo'] }}">{{ tipo['tipo'] }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">Buscar</button>
+    </form>
+    
+    {% if productos %}
+      <h2>Productos de tipo {{ request.form['tipo'] }}:</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Vencimiento</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for producto in productos %}
+            <tr>
+              <td>{{ producto['nombre'] }}</td>
+              <td>{{ producto['cantidad'] }}</td>
+              <td>{{ producto['vencimiento'] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+    <a href="/">← Volver al menú</a>
+  </div>
+</body>
+</html>
